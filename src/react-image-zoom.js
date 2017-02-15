@@ -1,3 +1,4 @@
+// export default  4;
 import React, { Component, PropTypes } from 'react';
 import styled from 'styled-components';
 import { Motion, spring } from 'react-motion';
