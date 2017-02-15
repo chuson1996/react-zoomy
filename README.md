@@ -10,7 +10,7 @@ Peer dependencies: `react-motion` and `styled-components`. Yep, I know, that mea
 
 Url of the image
 
-**2. renderThumbnail**: Function (required). ({ showImage }) => React Element
+**2. renderThumbnail**: Function (required). `({ showImage }) => React Element`
 
 Call `showImage()` to display to image
 
@@ -23,11 +23,13 @@ Example:
     }
 ```
 
-**3. renderCursor**: Function (optional). ({ style, isImageShowed }) => React Element
+**3. renderCursor**: Function (optional). 
+`({ style, isImageShowed }) => React Element`
 
 Just in case you want to have a custom cursor when moving over the picture. Apply `style` prop to your react element. `isImageShowed` prop indicates when the image is displayed or not.
 
-**4. renderLoadingElement**: Function (optional). ({ isImageShowed, isImageLoaded, done}) => React Element
+**4. renderLoadingElement**: Function (optional). 
+`({ isImageShowed, isImageLoaded, done }) => React Element`
 
 This is optional. If you wish to have something before sliding the image in (or simply to deplay it), you would need to declare this prop. `isImageShowed` and `isImageLoaded` is pretty declarative themselves. Call `done()` to start sliding the image in.
 
