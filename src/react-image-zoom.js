@@ -38,7 +38,7 @@ export default class ZoomableImage extends Component {
     super(props);
     this.state = {
       pictureLoaded: false,
-      showImage: false,
+      isImageShowed: false,
       loading: false,
       cursorPosition: {
         top: 0,
@@ -57,7 +57,7 @@ export default class ZoomableImage extends Component {
     document.querySelector('html').style.overflowY = 'hidden';
 
     this.setState({
-      showImage: true,
+      isImageShowed: true,
       loading: true,
       cursorPosition: {
         top: clientY,
@@ -77,7 +77,7 @@ export default class ZoomableImage extends Component {
   hide = () => {
     document.querySelector('html').style.overflowY = 'initial';
     this.setState({
-      showImage: false
+      isImageShowed: false
     });
   };
 
@@ -125,7 +125,7 @@ export default class ZoomableImage extends Component {
     } = this.props;
     const {
       pictureLoaded,
-      showImage,
+      isImageShowed,
       loading,
       imageMove,
       pictureHeight,
@@ -142,8 +142,8 @@ export default class ZoomableImage extends Component {
     return (
       <div>
         <Motion style={{
-            x: (showImage && pictureLoaded && !loading) ? goSlow(0) : goSlow(-100),
-            opacity: showImage ? goSlow(1) : goSlow(0)
+            x: (isImageShowed && pictureLoaded && !loading) ? goSlow(0) : goSlow(-100),
+            opacity: isImageShowed ? goSlow(1) : goSlow(0)
           }}>
           {({ x, opacity }) =>
             <ImageContainer
@@ -151,8 +151,8 @@ export default class ZoomableImage extends Component {
               onMouseMove={this.onMouseMoveOnImageContainer}
               style={{
                 opacity,
-                cursor: (renderCursor && showImage) ? 'none' : 'pointer',
-                pointerEvents: showImage ? 'auto' : 'none',
+                cursor: (renderCursor && isImageShowed) ? 'none' : 'pointer',
+                pointerEvents: isImageShowed ? 'auto' : 'none',
                 ...(imageContainerProps && imageContainerProps.style)
               }}
             >
@@ -161,11 +161,11 @@ export default class ZoomableImage extends Component {
                   top: cursorPosition.top,
                   left: cursorPosition.left
                 },
-                show: showImage
+                isImageShowed: isImageShowed
               })}
 
               {renderLoadingElement && renderLoadingElement({
-                isImageShowed: showImage,
+                isImageShowed: isImageShowed,
                 isImageLoaded: pictureLoaded,
                 done: this.slideImageIn
               })}

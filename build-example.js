@@ -10,4 +10,4 @@ const fuse = fsbx.FuseBox.init({
 	]
 });
 
-fuse.devServer(">app.js");
+fuse.bundle(">app.js");
