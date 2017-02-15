@@ -12,4 +12,4 @@ const fuse = fsbx.FuseBox.init({
 	]
 });
 
-fuse.bundle(">react-image-zoom.js");
+fuse.bundle('>react-image-zoom.js [**/*.js]');
