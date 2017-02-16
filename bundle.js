@@ -13,13 +13,13 @@ var _reactDom = require('react-dom');
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _reactImageZoom = require('./lib/react-image-zoom.js');
+var _reactZoomImage = require('./lib/react-zoom-image.js');
 
-var _reactImageZoom2 = _interopRequireDefault(_reactImageZoom);
+var _reactZoomImage2 = _interopRequireDefault(_reactZoomImage);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_reactDom2.default.render(_react2.default.createElement(_reactImageZoom2.default, {
+_reactDom2.default.render(_react2.default.createElement(_reactZoomImage2.default, {
   imageUrl: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?dpr=2&auto=format&fit=crop&w=767&h=512&q=80&cs=tinysrgb&crop=',
   renderThumbnail: function renderThumbnail(_ref) {
     var showImage = _ref.showImage;
@@ -31,14 +31,14 @@ _reactDom2.default.render(_react2.default.createElement(_reactImageZoom2.default
   }
 }), document.querySelector('#main'));
 });
-___scope___.file("lib/react-image-zoom.js", function(exports, require, module, __filename, __dirname){ 
+___scope___.file("lib/react-zoom-image.js", function(exports, require, module, __filename, __dirname){ 
 
 'use strict';
 
 var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 (function webpackUniversalModuleDefinition(root, factory) {
-	if ((typeof exports === 'undefined' ? 'undefined' : _typeof2(exports)) === 'object' && (typeof module === 'undefined' ? 'undefined' : _typeof2(module)) === 'object') module.exports = factory(require("react"), require("styled-components"), require("react-motion"));else if (typeof define === 'function' && define.amd) define(["react", "styled-components", "react-motion"], factory);else if ((typeof exports === 'undefined' ? 'undefined' : _typeof2(exports)) === 'object') exports["ReactImageZoom"] = factory(require("react"), require("styled-components"), require("react-motion"));else root["ReactImageZoom"] = factory(root["React"], root["styled-components"], root["react-motion"]);
+	if ((typeof exports === 'undefined' ? 'undefined' : _typeof2(exports)) === 'object' && (typeof module === 'undefined' ? 'undefined' : _typeof2(module)) === 'object') module.exports = factory(require("react"), require("styled-components"), require("react-motion"));else if (typeof define === 'function' && define.amd) define(["react", "styled-components", "react-motion"], factory);else if ((typeof exports === 'undefined' ? 'undefined' : _typeof2(exports)) === 'object') exports["ReactZoomImage"] = factory(require("react"), require("styled-components"), require("react-motion"));else root["ReactZoomImage"] = factory(root["React"], root["styled-components"], root["react-motion"]);
 })(undefined, function (__WEBPACK_EXTERNAL_MODULE_1__, __WEBPACK_EXTERNAL_MODULE_2__, __WEBPACK_EXTERNAL_MODULE_3__) {
 	return (/******/function (modules) {
 			// webpackBootstrap
@@ -160,13 +160,13 @@ var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbo
 
 			var ImageContainer = _styledComponents2.default.div(_templateObject);
 
-			var ZoomableImage = function (_Component) {
-				_inherits(ZoomableImage, _Component);
+			var ReactZoomImage = function (_Component) {
+				_inherits(ReactZoomImage, _Component);
 
-				function ZoomableImage(props) {
-					_classCallCheck(this, ZoomableImage);
+				function ReactZoomImage(props) {
+					_classCallCheck(this, ReactZoomImage);
 
-					var _this = _possibleConstructorReturn(this, (ZoomableImage.__proto__ || Object.getPrototypeOf(ZoomableImage)).call(this, props));
+					var _this = _possibleConstructorReturn(this, (ReactZoomImage.__proto__ || Object.getPrototypeOf(ReactZoomImage)).call(this, props));
 
 					_this.show = function (_ref) {
 						var clientX = _ref.clientX,
@@ -176,7 +176,7 @@ var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbo
 						document.querySelector('html').style.overflowY = 'hidden';
 
 						_this.setState({
-							showImage: true,
+							isImageShowed: true,
 							loading: true,
 							cursorPosition: {
 								top: clientY,
@@ -196,7 +196,7 @@ var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbo
 					_this.hide = function () {
 						document.querySelector('html').style.overflowY = 'initial';
 						_this.setState({
-							showImage: false
+							isImageShowed: false
 						});
 					};
 
@@ -239,7 +239,7 @@ var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbo
 
 					_this.state = {
 						pictureLoaded: false,
-						showImage: false,
+						isImageShowed: false,
 						loading: false,
 						cursorPosition: {
 							top: 0,
@@ -254,7 +254,7 @@ var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbo
 					return _this;
 				}
 
-				_createClass(ZoomableImage, [{
+				_createClass(ReactZoomImage, [{
 					key: 'render',
 					value: function render() {
 						var _this2 = this;
@@ -268,7 +268,7 @@ var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbo
 						    imageProps = _props.imageProps;
 						var _state = this.state,
 						    pictureLoaded = _state.pictureLoaded,
-						    showImage = _state.showImage,
+						    isImageShowed = _state.isImageShowed,
 						    loading = _state.loading,
 						    imageMove = _state.imageMove,
 						    pictureHeight = _state.pictureHeight,
@@ -284,8 +284,8 @@ var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbo
 						};
 
 						return _react2.default.createElement('div', null, _react2.default.createElement(_reactMotion.Motion, { style: {
-								x: showImage && pictureLoaded && !loading ? goSlow(0) : goSlow(-100),
-								opacity: showImage ? goSlow(1) : goSlow(0)
+								x: isImageShowed && pictureLoaded && !loading ? goSlow(0) : goSlow(-100),
+								opacity: isImageShowed ? goSlow(1) : goSlow(0)
 							} }, function (_ref4) {
 							var x = _ref4.x,
 							    opacity = _ref4.opacity;
@@ -293,17 +293,17 @@ var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbo
 								onMouseMove: _this2.onMouseMoveOnImageContainer,
 								style: _extends({
 									opacity: opacity,
-									cursor: renderCursor && showImage ? 'none' : 'pointer',
-									pointerEvents: showImage ? 'auto' : 'none'
+									cursor: renderCursor && isImageShowed ? 'none' : 'pointer',
+									pointerEvents: isImageShowed ? 'auto' : 'none'
 								}, imageContainerProps && imageContainerProps.style)
 							}), renderCursor && renderCursor({
 								style: {
 									top: cursorPosition.top,
 									left: cursorPosition.left
 								},
-								isImageShowed: showImage
+								isImageShowed: isImageShowed
 							}), renderLoadingElement && renderLoadingElement({
-								isImageShowed: showImage,
+								isImageShowed: isImageShowed,
 								isImageLoaded: pictureLoaded,
 								done: _this2.slideImageIn
 							}), _react2.default.createElement(_reactMotion.Motion, { style: imageMove }, function (imageMove) {
@@ -322,10 +322,10 @@ var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbo
 					}
 				}]);
 
-				return ZoomableImage;
+				return ReactZoomImage;
 			}(_react.Component);
 
-			ZoomableImage.propTypes = {
+			ReactZoomImage.propTypes = {
 				imageUrl: _react.PropTypes.string.isRequired,
 				renderThumbnail: _react.PropTypes.func.isRequired,
 				renderCursor: _react.PropTypes.func,
@@ -333,7 +333,7 @@ var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbo
 				imageContainerProps: _react.PropTypes.object,
 				imageProps: _react.PropTypes.object
 			};
-			exports.default = ZoomableImage;
+			exports.default = ReactZoomImage;
 
 			/***/
 		},
@@ -1042,7 +1042,7 @@ var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbo
 	);
 });
 ;
-//# sourceMappingURL=react-image-zoom.map
+//# sourceMappingURL=react-zoom-image.map
 });
 });
 FuseBox.pkg("react", {}, function(___scope___){
