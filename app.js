@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ReactZoomImage from './lib/react-zoom-image.js';
+import ReactZoomImage from './lib/react-zoomy.js';
 
 ReactDOM.render(
   <ReactZoomImage
