@@ -1,10 +1,10 @@
-# React-Image-Zoom
+# react-zoomy
 
-[Demo](https://chuson1996.github.io/react-image-zoom/)
+[Demo](https://chuson1996.github.io/react-zoomy/)
 
 Peer dependencies: `react-motion` and `styled-components`. Yep, I know, that means you have to install them.
 
-Install `npm install --save react-image-zoom`
+Install `npm install --save react-zoomy`
 
 ### Props:
 
@@ -18,9 +18,9 @@ Call `showImage()` to display to image
 
 Example:
 ```js
-import ReactImageZoom from 'react-image-zoom';
+import ReactZoomy from 'react-zoomy';
 
-<ReactImageZoom
+<ReactZoomy
     imageUrl={'https://images.unsplash.com/photo-1441986300917-64674bd600d8?dpr=2&auto=format&fit=crop&w=767&h=512&q=80&cs=tinysrgb&crop='}
     renderThumbnail={({ showImage }) =>
         <button onClick={showImage}>Show Image</button>

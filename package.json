@@ -1,6 +1,6 @@
 {
-  "name": "react-image-zoom",
-  "main": "lib/react-image-zoom.js",
+  "name": "react-zoomy",
+  "main": "lib/react-zoomy.js",
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
@@ -29,5 +29,5 @@
     "react-motion": "^0.4.7",
     "styled-components": "^1.4.3"
   },
-  "homepage": "http://chuson1996.github.io/react-image-zoom"
+  "homepage": "http://chuson1996.github.io/react-zoomy"
 }

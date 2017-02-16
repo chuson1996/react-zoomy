@@ -9,14 +9,14 @@ var path = require('path');
 var config = {
   devtool: 'sourcemap',
   entry: {
-    index: './src/react-image-zoom.js'
+    index: './src/react-zoomy.js'
   },
   output: {
     path: path.join(__dirname, 'lib'),
     publicPath: 'lib/',
-    filename: 'react-image-zoom.js',
-    sourceMapFilename: 'react-image-zoom.map',
-    library: 'ReactImageZoom',
+    filename: 'react-zoomy.js',
+    sourceMapFilename: 'react-zoomy.map',
+    library: 'ReactZoomImage',
     libraryTarget: 'umd'
   },
   module: {
