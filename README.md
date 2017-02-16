@@ -4,6 +4,8 @@
 
 Peer dependencies: `react-motion` and `styled-components`. Yep, I know, that means you have to install them.
 
+Install `npm install --save react-image-zoom`
+
 ### Props:
 
 **1. imageUrl**: String (required)
@@ -16,6 +18,8 @@ Call `showImage()` to display to image
 
 Example:
 ```js
+import ReactImageZoom from 'react-image-zoom';
+
 <ReactImageZoom
     imageUrl={'https://images.unsplash.com/photo-1441986300917-64674bd600d8?dpr=2&auto=format&fit=crop&w=767&h=512&q=80&cs=tinysrgb&crop='}
     renderThumbnail={({ showImage }) =>
