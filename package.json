@@ -1,6 +1,6 @@
 {
   "name": "react-image-zoom",
-  "main": "index.js",
+  "main": "lib/react-image-zoom.js",
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
