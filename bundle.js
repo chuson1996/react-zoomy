@@ -292,7 +292,7 @@ ReactZoomy.defaultProps = {
 exports.default = ReactZoomy;
 });
 });
-FuseBox.pkg("react@15.4.2", {}, function(___scope___){
+FuseBox.pkg("react", {}, function(___scope___){
 ___scope___.file("react.js", function(exports, require, module, __filename, __dirname){ 
 
 'use strict';
@@ -5186,7 +5186,7 @@ if (typeof Object.assign != 'function') {
 });
 return ___scope___.entry = "index.js";
 });
-FuseBox.pkg("react-dom@15.4.2", {"react":"15.4.2"}, function(___scope___){
+FuseBox.pkg("react-dom", {}, function(___scope___){
 ___scope___.file("index.js", function(exports, require, module, __filename, __dirname){ 
 
 'use strict';
@@ -21266,7 +21266,7 @@ module.exports = ReactDOMInvalidARIAHook;
 });
 return ___scope___.entry = "index.js";
 });
-FuseBox.pkg("styled-components@1.4.3", {"react":"15.4.2"}, function(___scope___){
+FuseBox.pkg("styled-components", {}, function(___scope___){
 ___scope___.file("lib/index.js", function(exports, require, module, __filename, __dirname){ 
 
 'use strict';
@@ -29363,7 +29363,7 @@ module.exports = hyphenateStyleName;
 });
 return ___scope___.entry = "index.js";
 });
-FuseBox.pkg("react-motion@0.4.7", {"react":"15.4.2"}, function(___scope___){
+FuseBox.pkg("react-motion", {}, function(___scope___){
 ___scope___.file("lib/react-motion.js", function(exports, require, module, __filename, __dirname){ 
 
 'use strict';
