@@ -1,7 +1,7 @@
 {
   "name": "react-zoomy",
   "main": "lib/react-zoomy.js",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "license": "MIT",
   "scripts": {
     "build": "./node_modules/webpack/bin/webpack.js --config webpack.config.js",
