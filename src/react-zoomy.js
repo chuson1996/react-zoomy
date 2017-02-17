@@ -31,7 +31,12 @@ export default class ReactZoomy extends Component {
     renderCursor: PropTypes.func,
     renderLoadingElement: PropTypes.func,
     imageContainerProps: PropTypes.object,
-    imageProps: PropTypes.object
+    imageProps: PropTypes.object,
+    scale: PropTypes.array
+  };
+
+  static defaultProps = {
+    scale: [1, 1]
   };
 
   constructor(props) {
@@ -77,7 +82,11 @@ export default class ReactZoomy extends Component {
   hide = () => {
     document.querySelector('html').style.overflowY = 'initial';
     this.setState({
-      isImageShowed: false
+      isImageShowed: false,
+      imageMove: {
+        x: spring(0),
+        y: spring(0)
+      }
     });
   };
 
@@ -107,10 +116,11 @@ export default class ReactZoomy extends Component {
     });
   };
 
-  onLoad = (e) => {
+  onLoad = ({ target }) => {
     this.setState({
       pictureLoaded: true,
-      pictureHeight: e.target.clientHeight / window.innerHeight * window.innerWidth
+      pictureHeight: target.clientHeight,
+      pictureWidth: target.clientWidth
     });
   };
 
@@ -121,7 +131,8 @@ export default class ReactZoomy extends Component {
       renderCursor,
       renderLoadingElement,
       imageContainerProps,
-      imageProps
+      imageProps,
+      scale
     } = this.props;
     const {
       pictureLoaded,
@@ -129,10 +140,11 @@ export default class ReactZoomy extends Component {
       loading,
       imageMove,
       pictureHeight,
+      pictureWidth,
       cursorPosition,
     } = this.state;
 
-    const scale = 1.5;
+    const [scaleX, scaleY] = scale;
 
     const goSlow = (val) => spring(val, {
       stiffness: 126,
@@ -175,17 +187,17 @@ export default class ReactZoomy extends Component {
                   <img
                     {...imageProps}
                     onMouseMove={this.onMouseMove}
-                    width={'100%'}
                     onClick={this.hide}
                     onLoad={this.onLoad}
                     style={{
                       transform: new CssToMatrix()
-                        .scale(scale, scale)
+                        .scale(scaleX, scaleY)
                         .translate(
-                          x * scale / 100 * window.innerWidth - imageMove.x / 100 * (scale - 1) * window.innerWidth,
-                          - (pictureHeight - window.innerHeight) / 2 - imageMove.y / 100 * (pictureHeight * scale - window.innerHeight))
+                          x * scaleX / 100 * pictureWidth - imageMove.x / 100 * (pictureWidth * scaleX - window.innerWidth),
+                          // 0
+                          - (pictureHeight - window.innerHeight) / 2 - imageMove.y / 100 * (pictureHeight * scaleY - window.innerHeight)
+                        )
                         .getMatrixCSS(),
-                      height: pictureHeight || 'auto',
                       ...(imageProps && imageProps.style)
                     }}
                     src={imageUrl}/>

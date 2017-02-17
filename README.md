@@ -27,20 +27,24 @@ import ReactZoomy from 'react-zoomy';
     }
 ```
 
-**3. renderCursor**: Function (optional). 
+**3. scale**: [scaleX: Number, scaleY: Number] (optional). Default [1, 1]
+
+To scale the image.
+
+**4. renderCursor**: Function (optional). 
 `({ style, isImageShowed }) => React Element`
 
 Just in case you want to have a custom cursor when moving over the picture. Apply `style` prop to your react element. `isImageShowed` prop indicates when the image is displayed or not.
 
-**4. renderLoadingElement**: Function (optional). 
+**5. renderLoadingElement**: Function (optional). 
 `({ isImageShowed, isImageLoaded, done }) => React Element`
 
 This is optional. If you wish to have something before sliding the image in (or simply to deplay it), you would need to declare this prop. `isImageShowed` and `isImageLoaded` is pretty declarative themselves. Call `done()` to start sliding the image in.
 
-**5. imageContainerProps**: Object (optional)
+**6. imageContainerProps**: Object (optional)
 
 Props passed down to the container of the image
 
-**6. imageProps**: Object (optional)
+**7. imageProps**: Object (optional)
 
 Props passed down to the image
