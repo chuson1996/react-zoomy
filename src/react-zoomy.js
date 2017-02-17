@@ -8,9 +8,11 @@ const ImageContainer = styled.div`
   position: fixed;
   z-index: 98;
 
-  display: flex;
-  justify-content: center;
-  align-content: center;
+  // display: flex;
+  // justify-content: center;
+  // align-content: center;
+  text-align: center;
+
   top: 0;
   left: 0;
   width: 100vw;
