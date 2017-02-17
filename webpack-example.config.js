@@ -43,7 +43,7 @@ module.exports = {
   devtool: devtool,
   entry: entry,
   output: {
-    filename: '[name]/bundle.js',
+    filename: 'bundle.js',
     path: __dirname + '/example/',
   },
   inline: true,

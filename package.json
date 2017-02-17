@@ -6,7 +6,7 @@
   "scripts": {
     "build": "./node_modules/webpack/bin/webpack.js --config webpack.config.js",
     "serve": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --config webpack-example.config.js",
-    "build-example": "rm -rf example/lib && cp -r lib example && node build-example.js",
+    "build-example": "./node_modules/webpack/bin/webpack.js --config webpack-example.config.js",
     "deploy": "./node_modules/gh-pages/bin/gh-pages -d example"
   },
   "devDependencies": {
