@@ -33,7 +33,7 @@ import ReactZoomy from 'react-zoomy';
 />
 ```
 
-**3. scale**: [scaleX: Number, scaleY: Number] (optional). Default [1, 1]
+**3. scale**: \[scaleX: Number, scaleY: Number\] (optional). Default [1, 1]
 
 To scale the image.
 
