@@ -2,6 +2,8 @@
 
 [Demo](https://chuson1996.github.io/react-zoomy/)
 
+[Live Demo - Tutorial](https://www.youtube.com/watch?v=shIeuTM_6t0)
+
 Peer dependencies: `react-motion` and `styled-components`. Yep, I know, that means you have to install them.
 
 Install `npm install --save react-zoomy`
