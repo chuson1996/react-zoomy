@@ -1,5 +1,6 @@
 // export default  4;
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Motion, spring } from 'react-motion';
 import CssToMatrix from 'css-to-matrix';
